@@ -11,4 +11,15 @@ contract Counter {
     function increment() public {
         number += 1;
     }
+        function decrement() public {
+        require(number > 0, "counter is already zero");
+        number--;
+    }
+
+
+ function setNumber(uint256 newNumber) public {
+    number = newNumber;
+ }
+
+
 }
