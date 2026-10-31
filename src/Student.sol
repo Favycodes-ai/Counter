@@ -9,8 +9,11 @@ contract Student {
 
     mapping(address => Info) public students;
 
+    event StudentAdded(address indexed studentAddress, string name, uint256 level);
+
     function addStudent(string calldata _name, uint256 _level) public {
         students[msg.sender] = Info(_name, _level);
+        emit StudentAdded(msg.sender, _name, _level);
     }
 
     function getMyName() public view returns (string memory) {
